@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'en' }}">
+<head>
+  <script>window.__MMM_LANG = {{ page.lang | default: 'en' | jsonify }};</script>
+  {% include head.html %}
+</head>
+<body class="{{ page.body_class }}" data-page-lang="{{ page.lang | default: 'en' }}" data-pricing-lang="{{ page.pricing_lang | default: page.lang | default: 'en' }}">
+  {% include topbar.html %}
+  {% unless page.hide_banner_bg %}
+  <div class="site-banner-bg" aria-hidden="true">
+    <iframe src="{{ '/assets/hero-banner-bg.html' | relative_url }}" title="" tabindex="-1" loading="lazy" scrolling="no"></iframe>
+  </div>
+  {% endunless %}
+  {{ content }}
+  {% include footer.html %}
+  {% include scripts.html %}
+</body>
+</html>
